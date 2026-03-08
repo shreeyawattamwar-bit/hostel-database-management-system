@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Student Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f3f3f3;
+text-align:center;
+padding-top:80px;
+}
+
+.card{
+background:white;
+padding:40px;
+width:400px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.status{
+font-size:25px;
+margin-top:20px;
+}
+
+.in{
+color:green;
+}
+
+.out{
+color:red;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Student Dashboard</h2>
+
+<p id="status"></p>
+
+</div>
+
+<script>
+
+const params=new URLSearchParams(window.location.search);
+const id=params.get("id");
+
+fetch("/student-status/"+id)
+
+.then(res=>res.json())
+
+.then(data=>{
+
+if(data.status=="OUT"){
+
+document.getElementById("status").innerHTML="OUTSIDE HOSTEL";
+document.getElementById("status").className="status out";
+
+}
+
+else{
+
+document.getElementById("status").innerHTML="INSIDE HOSTEL";
+document.getElementById("status").className="status in";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

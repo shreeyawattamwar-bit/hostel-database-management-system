@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hostel Login</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#fff9c4,#ffe082);
+font-family:Arial;
+}
+
+.login-box{
+background:white;
+padding:40px;
+border-radius:20px;
+width:320px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+button{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+.admin{
+background:#fbc02d;
+}
+
+.student{
+background:#4caf50;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>Hostel Login</h2>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button class="admin" onclick="login()">Admin Login</button>
+
+<hr>
+
+<h3>Student</h3>
+
+<button class="student" onclick="studentLogin()">
+Student Login
+</button>
+
+</div>
+
+<script>
+
+function login(){
+
+const user=document.getElementById("username").value;
+const pass=document.getElementById("password").value;
+
+if(user==="admin" && pass==="1234"){
+window.location.href="dashboard.html";
+}else{
+alert("Invalid Admin Login");
+}
+
+}
+
+function studentLogin(){
+
+window.location.href="studentlogin.html";
+
+}
+
+</script>
+
+</body>
+</html>
